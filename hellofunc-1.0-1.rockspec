@@ -11,15 +11,22 @@
        paragraph-long description.
     ]],
     homepage = "https://github.com/fantajeon/lua_ffi_examples.git", -- We don't have one yet
-    license = "MIT/X11" -- or whatever you like
+    license = "BSD" -- or whatever you like
  }
  dependencies = {
-    "lua ~> 5.1"
+    "lua ~> 5.1",
+    "torch >= 7.0",
+    "luaffi"
     -- If you depend on other rocks, add them here
  }
  build = {
-    type="builtin",
-    modules = {
-        hellofunc = "hellofunc.c"
-    }
+    type="command",
+    build_command = [[
+        gcc -Wall -shared -fPIC -o libhellofunc.so hellofunc.c
+    ]] 
+    -- ,
+    -- install_command = [[
+    --    echo "test" 
+    --    th test.lua
+    --]]
  }

@@ -1,0 +1,3 @@
+[submodule "lua_hello"]
+	path = lua_hello
+	url = https://github.com/fantajeon/lua_hello.git
